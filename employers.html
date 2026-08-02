@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employers | HireArchy Solutions Pvt. Ltd.</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root{
+    --navy:#0b1f4b;
+    --navy-dark:#081536;
+    --gold:#f0a824;
+    --gold-dark:#d6910f;
+    --cream:#fbf7ee;
+    --ink:#1c2438;
+    --muted:#6b7280;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI', Arial, sans-serif;color:var(--ink);background:var(--white);line-height:1.55;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:700;font-size:13.5px;border:none;cursor:pointer;transition:transform .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy-dark);box-shadow:0 6px 16px rgba(240,168,36,.35);}
+  .btn-outline-white{background:transparent;border:1.5px solid #fff;color:#fff;}
+  h1,h2,h3{color:var(--navy-dark);}
+  section{padding:48px 0;}
+
+  /* Header */
+  header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:50;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--navy-dark);}
+  .logo .mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--navy));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;}
+  .logo small{display:block;font-size:9.5px;font-weight:500;color:var(--muted);}
+  nav ul{display:flex;gap:26px;align-items:center;font-size:13.5px;font-weight:600;color:var(--navy-dark);}
+  nav a.active{color:var(--gold-dark);}
+
+  /* HERO + PROCESS TOP GRID */
+  .top-grid{display:grid;grid-template-columns:1.3fr 1fr;}
+  .hero{background:var(--navy-dark);color:#fff;padding:40px 32px 48px;position:relative;}
+  .badge-tag{display:inline-block;background:rgba(240,168,36,.15);color:var(--gold);font-size:11px;font-weight:800;padding:5px 14px;border-radius:6px;letter-spacing:.05em;margin-bottom:14px;}
+  .hero h1{color:#fff;font-size:32px;font-weight:800;line-height:1.25;}
+  .hero .tagline{color:var(--gold);font-weight:700;font-size:14px;margin:12px 0 12px;}
+  .hero p{color:#c9d1ea;font-size:13px;margin-bottom:20px;max-width:480px;}
+  .hero-img{border-radius:12px;overflow:hidden;margin:16px 0 20px;max-width:420px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+
+  .process-panel{padding:36px 30px;}
+  .process-head{text-align:center;margin-bottom:22px;}
+  .process-head h4{font-size:12px;color:var(--gold-dark);letter-spacing:.05em;font-weight:800;}
+  .process-head h2{font-size:17px;margin-top:4px;}
+  .process-list{position:relative;padding-left:44px;}
+  .process-list::before{content:"";position:absolute;left:16px;top:8px;bottom:8px;width:2px;background:#e5e7eb;}
+  .p-item{position:relative;margin-bottom:22px;}
+  .p-item .num{position:absolute;left:-44px;top:0;width:32px;height:32px;border-radius:50%;background:var(--navy-dark);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;}
+  .p-item strong{display:block;font-size:13.5px;color:var(--navy-dark);margin-bottom:3px;}
+  .p-item span{font-size:12px;color:var(--muted);}
+
+  /* Who we work with */
+  .center-head{text-align:center;margin-bottom:30px;}
+  .center-head h4{font-size:12px;color:var(--gold-dark);letter-spacing:.05em;font-weight:800;}
+  .center-head h2{font-size:23px;margin-top:6px;}
+  .center-head p{font-size:13.5px;color:var(--muted);margin-top:8px;max-width:640px;margin-left:auto;margin-right:auto;}
+
+  .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:14px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .box-item{border:1px solid #eee;border-radius:12px;padding:22px 12px;text-align:center;box-shadow:0 3px 10px rgba(20,30,70,.04);}
+  .box-item .ic{width:44px;height:44px;border-radius:10px;background:var(--cream);color:var(--navy-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:19px;}
+  .box-item span{font-size:12.5px;font-weight:700;color:var(--navy-dark);}
+
+  /* Flexible hiring */
+  .flex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:20px;}
+  .flex-card{border:1px solid #eee;border-radius:12px;padding:24px;text-align:center;}
+  .flex-card .ic{width:50px;height:50px;border-radius:12px;background:var(--cream);color:var(--navy-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px;}
+  .flex-card h4{font-size:14.5px;margin-bottom:8px;}
+  .flex-card p{font-size:12.5px;color:var(--muted);}
+  .commit-box{border:1.5px solid var(--gold);background:#fffaf0;border-radius:12px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;}
+  .commit-box .ic{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--navy-dark);display:flex;align-items:center;justify-content:center;flex:none;font-size:17px;}
+  .commit-box h4{font-size:14px;margin-bottom:4px;}
+  .commit-box p{font-size:12.5px;color:var(--muted);}
+
+  /* FAQ */
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .faq-item{border:1px solid #eee;border-radius:10px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--navy-dark);}
+  .faq-item .sign{color:var(--gold-dark);font-weight:800;}
+
+  /* Trust + form + assistance 3col */
+  .three-col{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:20px;align-items:start;}
+  .panel{border-radius:14px;padding:24px;}
+  .panel.light{background:var(--cream);}
+  .panel.navy{background:var(--navy-dark);color:#fff;}
+  .panel h4{font-size:11px;color:var(--gold-dark);letter-spacing:.05em;font-weight:800;margin-bottom:6px;}
+  .panel.navy h4{color:var(--gold);}
+  .panel h3{font-size:17px;margin-bottom:16px;}
+  .panel.navy h3{color:#fff;}
+  .check-list li{font-size:13px;font-weight:600;color:var(--navy-dark);margin-bottom:10px;}
+  .check-list li::before{content:"✔ ";color:var(--gold-dark);}
+
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px;}
+  .form-grid label, .form-field label{display:block;font-size:11.5px;font-weight:700;color:var(--navy-dark);margin-bottom:5px;}
+  .form-grid input, .form-grid select{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:12.5px;background:#fff;}
+  .upload-box{border:1.5px dashed #cbd5e1;border-radius:10px;padding:20px;text-align:center;margin-top:14px;font-size:12.5px;color:var(--muted);}
+  .upload-box strong{display:block;color:var(--navy-dark);font-size:13px;margin-bottom:6px;}
+  .form-panel .btn-gold{width:100%;justify-content:center;margin-top:14px;}
+
+  .contact-line{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px;font-size:12.5px;}
+  .contact-line .ic{color:var(--gold);flex:none;}
+  .contact-line strong{display:block;color:var(--gold);font-size:11.5px;}
+  .contact-line span{color:#c9d1ea;}
+  .panel.navy p.desc{font-size:12px;color:#c9d1ea;margin-bottom:16px;}
+  hr.sep{border:none;border-top:1px solid rgba(255,255,255,.15);margin:16px 0;}
+
+  /* Final CTA image strip */
+  .final-strip{position:relative;border-radius:14px;overflow:hidden;color:#fff;}
+  .final-strip img{width:100%;height:260px;object-fit:cover;filter:brightness(.4);}
+  .final-overlay{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:36px;max-width:560px;}
+  .final-overlay h2{color:#fff;font-size:22px;}
+  .final-overlay h2 span{color:var(--gold);}
+  .final-overlay p{color:#e5e9f5;font-size:13px;margin:12px 0 18px;}
+  .final-overlay .btn-outline-white{border-color:#fff;}
+
+  /* Footer */
+  footer{background:var(--navy-dark);color:#c9d1ea;padding-top:40px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:20px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-grid h5{color:#fff;font-size:13.5px;margin-bottom:12px;}
+  .footer-grid li{margin-bottom:7px;font-size:12.5px;}
+  .footer-grid .logo{color:#fff;margin-bottom:8px;}
+  .badges-strip{display:flex;flex-direction:column;gap:10px;}
+  .badges-strip .b{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;}
+  .socials{display:flex;gap:8px;margin-top:12px;}
+  .socials a{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .bottom-bar{display:flex;justify-content:space-between;padding:14px 0;font-size:11.5px;flex-wrap:wrap;gap:8px;}
+
+  @media(max-width:1000px){
+    .top-grid,.three-col,.faq-grid,.form-grid{grid-template-columns:1fr;}
+    .grid-5,.grid-4,.flex-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+ <style>
+   nav{
+    margin-left: 180px;
+}
+  .logo-img{
+    height:60px;
+    width:auto;
+    display:block;
+}
+ </style>
+<header>
+  <div class="logo">
+    <div>
+      <a href="index.html">
+        <img src="logo.jpeg" alt="HireArchy Solutions Logo" class="logo-img">
+      </a>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services ▾</a></li>
+      <li><a href="jobs.html">Jobs ▾</a></li>
+      <li><a href="employers.html">Employers ▾</a></li>
+      <li><a href="candidates.html">Candidates ▾</a></li>
+      <li><a href="career-tools.html">Career Tools ▾</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-actions">
+    <button class="btn btn-gold">Login</button>
+  </div>
+</header>
+
+<!-- HERO + PROCESS -->
+<div class="top-grid">
+  <div class="hero">
+    <div class="badge-tag">EMPLOYERS</div>
+    <h1>Build High-Performing<br>Teams with the Right Talent</h1>
+    <div class="tagline">Strategic Recruitment Solutions for Growing Businesses</div>
+    <p>Finding exceptional talent shouldn't slow down your business. Our recruitment experts help organizations hire faster, smarter, and with complete confidence. HireArchy Solutions Pvt. Ltd. partners with organizations across India to deliver reliable, efficient, and customized recruitment solutions that help organizations build high-performing talent and achieve long-term business success.</p>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=600&q=80" alt="Business handshake meeting">
+    </div>
+    <div class="hero-actions">
+      <button class="btn btn-gold">📤 Request Hiring Support</button>
+      <button class="btn btn-outline-white">📅 Schedule a Consultation</button>
+    </div>
+  </div>
+  <div class="process-panel">
+    <div class="process-head">
+      <h4>OUR RECRUITMENT PROCESS</h4>
+      <h2>A Simple, Transparent &amp; Efficient Hiring Process</h2>
+    </div>
+    <div class="process-list">
+      <div class="p-item"><div class="num">01</div><strong>Requirement Discovery</strong><span>Understanding your hiring goals, workforce requirements, and business expectations.</span></div>
+      <div class="p-item"><div class="num">02</div><strong>Recruitment Strategy</strong><span>Developing a customized hiring plan aligned with your recruitment objectives.</span></div>
+      <div class="p-item"><div class="num">03</div><strong>Candidate Sourcing</strong><span>Identifying qualified professionals through trusted recruitment channels.</span></div>
+      <div class="p-item"><div class="num">04</div><strong>Evaluation &amp; Screening</strong><span>Assessing candidates based on skills, experience, and role suitability.</span></div>
+      <div class="p-item"><div class="num">05</div><strong>Interview Coordination</strong><span>Managing interview scheduling and communication between employers and candidates.</span></div>
+      <div class="p-item"><div class="num">06</div><strong>Selection, Offer &amp; Joining Support</strong><span>Supporting the selection, offer management, and joining process for a smooth hiring experience.</span></div>
+      <div class="p-item"><div class="num">07</div><strong>Post-Joining Follow-Up</strong><span>Ensuring a seamless onboarding experience with continued post-joining support.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE WORK WITH -->
+<section>
+    <div class="wrap">
+
+        <div class="center-head">
+            <h4>WHO WE WORK WITH</h4>
+            <h2>Recruitment Solutions Designed for Every Business</h2>
+            <p>
+                Whether you're expanding your workforce, hiring for specialized
+                positions, or managing large-scale recruitment drives,
+                we provide tailored hiring solutions for businesses of every size.
+            </p>
+        </div>
+
+        <div class="grid-5">
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span>Startups</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-building"></i>
+                </div>
+                <span>Small & Medium Enterprises (SMEs)</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-city"></i>
+                </div>
+                <span>Large Enterprises</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <span>Corporate Organizations</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-map-location-dot"></i>
+                </div>
+                <span>Multi-Location Businesses</span>
+            </div>
+
+        </div>
+
+        <div class="grid-4">
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <span>Government & Public Sector</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <span>Manufacturing Companies</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <span>Logistics & Supply Chain Businesses</span>
+            </div>
+
+            <div class="box-item">
+                <div class="ic">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <span>IT & Technology Companies</span>
+            </div>
+
+        </div>
+
+    </div>
+    <style>
+      /*=============================
+      WHO WE WORK WITH
+==============================*/
+
+.box-item{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+
+    transition:all .35s ease;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.box-item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+/* ICON */
+
+.box-item .ic{
+
+    width:52px;
+    height:52px;
+
+    margin:0 auto 15px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#D4A017;
+
+    border:2px solid rgba(212,160,23,.20);
+
+    font-size:20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.10);
+
+    transition:all .35s cubic-bezier(.175,.885,.32,1.275);
+
+}
+
+/* Ripple */
+
+.box-item .ic::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    background:rgba(212,160,23,.20);
+
+    transform:scale(0);
+
+    transition:.5s;
+
+}
+
+/* POP EFFECT */
+
+.box-item:hover .ic{
+
+    background:#D4A017;
+
+    color:#fff;
+
+    transform:
+        translateY(-6px)
+        scale(1.12);
+
+    box-shadow:
+        0 14px 30px rgba(212,160,23,.40);
+
+}
+
+/* Ripple */
+
+.box-item:hover .ic::after{
+
+    transform:scale(2);
+
+    opacity:0;
+
+}
+
+/* Bounce */
+
+.box-item:hover .ic i{
+
+    animation:iconBounce .45s ease;
+
+}
+
+/* Text */
+
+.box-item span{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#0F1F4B;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    line-height:1.6;
+
+}
+
+/* Animation */
+
+@keyframes iconBounce{
+
+0%{
+transform:scale(.7);
+}
+
+50%{
+transform:scale(1.25);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+    </style>
+</section>
+
+<!-- RECRUITMENT SOLUTIONS -->
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="center-head">
+      <h4>OUR RECRUITMENT SOLUTIONS</h4>
+      <h2>Comprehensive Hiring Services Under One Roof</h2>
+    </div>
+    <div class="grid-5">
+      <div class="box-item" style="background:#fff;"><div class="ic">👤</div><span>Permanent Recruitment</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">👥</div><span>Bulk &amp; Volume Hiring</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">🔍</div><span>Executive Search</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">📋</div><span>Contract Staffing</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">📝</div><span>Project-Based Hiring</span></div>
+    </div>
+    <div class="grid-4">
+      <div class="box-item" style="background:#fff;"><div class="ic">🎓</div><span>Campus Recruitment</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">📊</div><span>Workforce Planning</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">💰</div><span>Payroll &amp; HR Support</span></div>
+      <div class="box-item" style="background:#fff;"><div class="ic">✅</div><span>End-to-End Recruitment Management</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEXIBLE HIRING MODELS -->
+<section>
+  <div class="wrap">
+    <div class="center-head">
+      <h4>FLEXIBLE HIRING MODELS</h4>
+      <h2>Recruitment That Fits Your Business Needs</h2>
+    </div>
+    <div class="flex-grid">
+      <div class="flex-card"><div class="ic">🎯</div><h4>Success-Based Hiring</h4><p>Pay only when the selected candidate successfully joins your organization.</p></div>
+      <div class="flex-card"><div class="ic">🤝</div><h4>Dedicated Recruitment Partnership</h4><p>A dedicated recruitment team exclusively focused on your ongoing hiring requirements.</p></div>
+      <div class="flex-card"><div class="ic">🤝</div><h4>Project-Based Hiring</h4><p>Scalable recruitment support for expansion projects, seasonal hiring, and business growth initiatives.</p></div>
+    </div>
+    <div class="commit-box">
+      <div class="ic">🛡</div>
+      <div>
+        <h4>Our Hiring Commitment</h4>
+        <p>Qualified candidate profiles are shared within mutually agreed timelines based on the complexity, urgency, and specific requirements of each hiring assignment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--cream);">
+  <div class="wrap">
+    <div class="center-head"><h2>FREQUENTLY ASKED QUESTIONS (FAQs)</h2></div>
+    <div class="faq-grid">
+      <div class="faq-item">Q1. How quickly can you start hiring? <span class="sign">+</span></div>
+      <div class="faq-item">Q4. Do you recruit for permanent and contract roles? <span class="sign">+</span></div>
+      <div class="faq-item">Q2. Do you support bulk hiring? <span class="sign">+</span></div>
+      <div class="faq-item">Q5. Which industries do you cater to? <span class="sign">+</span></div>
+      <div class="faq-item">Q3. Can you hire across multiple locations? <span class="sign">+</span></div>
+      <div class="faq-item">Q6. Do you sign Non-Disclosure Agreements (NDAs)? <span class="sign">+</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST + FORM + ASSISTANCE -->
+<!--section>
+  <div class="wrap three-col">
+    <div class="panel light">
+      <h4>WHY EMPLOYERS TRUST HIRE ARCHY</h4>
+      <h3>Delivering Recruitment with Reliability and Results</h3>
+      <ul class="check-list">
+        <li>Access to Verified Talent</li>
+        <li>Faster Recruitment Process</li>
+        <li>Dedicated Recruitment Specialists</li>
+        <li>Industry-Specific Hiring Expertise</li>
+        <li>Transparent Communication</li>
+        <li>Customized Hiring Strategies</li>
+        <li>Scalable Workforce Solutions</li>
+        <li>Ethical &amp; Transparent Recruitment Practices</li>
+        <li>Long-Term Recruitment Partnership</li>
+      </ul>
+    </div>
+
+    <div class="panel light form-panel">
+      <h4>SUBMIT YOUR HIRING REQUIREMENT</h4>
+      <h3>Tell Us About Your Hiring Needs</h3>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:14px;">Complete the form below, and our recruitment consultants will prepare a customized hiring solution tailored to your organization's requirements.</p>
+      <div class="form-grid">
+        <div class="form-field"><label>Company Name</label><input type="text"></div>
+        <div class="form-field"><label>Contact Person</label><input type="text"></div>
+        <div class="form-field"><label>Business Email</label><input type="email"></div>
+        <div class="form-field"><label>Mobile Number</label><input type="text"></div>
+        <div class="form-field"><label>Industry</label><select><option>Select Industry</option></select></div>
+        <div class="form-field"><label>Job Title / Position</label><input type="text"></div>
+        <div class="form-field"><label>Number of Open Positions</label><input type="text"></div>
+        <div class="form-field"><label>Experience Required</label><select><option>Select Experience</option></select></div>
+        <div class="form-field"><label>Employment Type</label><select><option>Select Type</option></select></div>
+        <div class="form-field"><label>Salary Budget / CTC</label><input type="text"></div>
+      </div>
+      <div class="form-field" style="margin-top:12px;"><label>Hiring Location</label><input type="text"></div>
+      <label style="margin-top:14px;">Upload Job Description (.PDF / .DOC / .DOCX)</label>
+      <div class="upload-box">
+        <strong>☁️ Drag &amp; drop your file here or browse</strong>
+        Max File Size: 5 MB
+      </div>
+      <button class="btn btn-gold">📤 Submit Hiring Requirement</button>
+    </div>
+
+    <div class="panel navy">
+      <h4>NEED IMMEDIATE HIRING ASSISTANCE?</h4>
+      <h3>Speak with Our Recruitment Experts</h3>
+      <p class="desc">Need urgent hiring support? Our recruitment specialists are ready to understand your hiring needs and recommend the most effective recruitment solution for your business.</p>
+      <p class="desc">Every hiring requirement is carefully reviewed by our recruitment specialists to develop a tailored hiring strategy and ensure efficient candidate delivery aligned with your business objectives.</p>
+      <hr class="sep">
+      <div class="contact-line"><span class="ic">📞</span><div><strong>Official Contact Number</strong><span>+91 9165972042</span></div></div>
+      <div class="contact-line"><span class="ic">✉️</span><div><strong>Official Business Email</strong><span>info@hirearchy.in</span></div></div>
+      <div class="contact-line"><span class="ic">🌐</span><div><strong>Official Website</strong><span>www.hirearchysolutions.in</span></div></div>
+      <div class="contact-line"><span class="ic">🕐</span><div><strong>Business Hours</strong><span>Monday – Saturday<br>09:30 AM – 06:30 PM<br>Sunday – Closed</span></div></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;">🎧 Talk to a Recruitment Expert</button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA STRIP -->
+<section>
+  <div class="wrap">
+    <div class="final-strip">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Business team">
+      <div class="final-overlay">
+        <h2>START BUILDING YOUR <span>HIGH-PERFORMING WORKFORCE TODAY</span></h2>
+        <p>The right people drive business success. Partner with HireArchy Solutions Pvt. Ltd. to attract, evaluate, and hire exceptional talent through a transparent, efficient, and customized recruitment process.</p>
+        <div style="display:flex;gap:12px;">
+          <button class="btn btn-gold">🚀 Start Hiring Today</button>
+          <button class="btn btn-outline-white">📅 Request a Consultation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo">
+        <img src="logo.jpeg" alt="HireArchy Solutions Logo" class="footer-logo">
+      </div>
+
+      <p style="font-size:13px;color:#9fabce;">
+        Connecting talent with opportunities and empowering businesses with smart HR, recruitment, staffing, payroll, and workforce solutions.
+      </p>
+
+      <div class="socials">
+        <a href="https://www.facebook.com/" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://wa.me/919165972042" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <a href="https://www.youtube.com/" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h5>Quick Links</h5>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Services</li>
+        <li>Jobs</li>
+        <li>Employers</li>
+        <li>Candidates</li>
+        <li>Career Tools</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Our Solutions</h5>
+      <ul>
+        <li>HR</li>
+        <li>Recruitment</li>
+        <li>Staffing</li>
+        <li>Payroll</li>
+        <li>Workforce Solutions</li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Contact Us</h5>
+      <ul>
+        <li>📍 Mandsaur, Madhya Pradesh, India</li>
+        <li>📞 +91 91659 72042</li>
+        <li>✉️ info@hirearchysolutions.in</li>
+        <li>🌐 www.hirearchysolutions.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap bottom-bar">
+    <span>© Copyright 2026 HireArchy Solutions Pvt. Ltd. All Rights Reserved.</span>
+    <span>Privacy Policy | Terms &amp; Conditions</span>
+  </div>
+  <style>
+    .footer-logo{
+    height:70px;
+    width:auto;
+    margin-bottom:15px;
+}
+
+.socials{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+}
+
+.socials a{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ffffff15;
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:#caa052;
+    color:#fff;
+}
+  </style>
+</footer>
