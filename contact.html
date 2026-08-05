@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | HireArchy Solutions Pvt. Ltd.</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root{
+    --navy:#0b1f4b;
+    --navy-dark:#081536;
+    --gold:#f0a824;
+    --gold-dark:#d6910f;
+    --cream:#fbf7ee;
+    --ink:#1c2438;
+    --muted:#6b7280;
+    --white:#ffffff;
+    --green:#22c55e;
+    --blue:#3b82f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI', Arial, sans-serif;color:var(--ink);background:var(--white);line-height:1.55;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;font-weight:700;font-size:13.5px;border:none;cursor:pointer;transition:transform .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy-dark);box-shadow:0 6px 16px rgba(240,168,36,.35);}
+  .btn-outline-white{background:transparent;border:1.5px solid #fff;color:#fff;}
+  h1,h2,h3{color:var(--navy-dark);}
+  section{padding:44px 0;}
+
+  /* Header */
+  header{background:var(--navy-dark);display:flex;align-items:center;justify-content:space-between;padding:14px 24px;color:#fff;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:#fff;}
+  .logo .mark{width:38px;height:38px;border-radius:10px;background:var(--gold);color:var(--navy-dark);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;}
+  .logo small{display:block;font-size:9px;font-weight:500;color:#9fabce;}
+  nav ul{display:flex;gap:24px;align-items:center;font-size:13.5px;font-weight:600;color:#e7ecf8;}
+  header .btn-gold{padding:9px 16px;font-size:12.5px;}
+
+  /* HERO */
+  .hero{background:var(--navy-dark);color:#fff;position:relative;overflow:hidden;padding:36px 0 0;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;}
+  .eyebrow{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:.06em;margin-bottom:10px;}
+  .hero h1{color:#fff;font-size:36px;font-weight:800;line-height:1.2;}
+  .hero .tagline{color:var(--gold);font-weight:700;font-size:14.5px;margin:14px 0 12px;}
+  .hero p{color:#c9d1ea;font-size:13px;margin-bottom:20px;max-width:460px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:34px;}
+  .hero-img{border-radius:14px 14px 0 0;overflow:hidden;height:100%;}
+  .hero-img img{height:280px;object-fit:cover;}
+
+  /* Quick contact cards */
+  .quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-40px;position:relative;z-index:2;}
+  .quick-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:18px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 8px 20px rgba(20,30,70,.08);}
+  .quick-card .ic{width:40px;height:40px;border-radius:50%;background:var(--navy-dark);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;}
+  .quick-card:nth-child(2) .ic{background:var(--gold);color:#fff;}
+  .quick-card:nth-child(4) .ic{background:var(--gold-dark);color:#fff;}
+  .quick-card strong{display:block;font-size:13.5px;color:var(--navy-dark);margin-bottom:3px;}
+  .quick-card span{display:block;font-size:12px;color:var(--muted);}
+  .quick-card .link{color:var(--navy);font-weight:700;font-size:12px;}
+
+  /* Form + business info */
+  .form-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;}
+  .form-card{border:1px solid #eee;border-radius:14px;padding:26px;box-shadow:0 4px 14px rgba(20,30,70,.04);}
+  .form-card h4{font-size:11.5px;color:var(--gold-dark);font-weight:800;letter-spacing:.05em;margin-bottom:6px;}
+  .form-card h3{font-size:19px;margin-bottom:6px;}
+  .form-card p.sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .f-field label{display:block;font-size:12px;font-weight:700;color:var(--navy-dark);margin-bottom:6px;}
+  .f-field label .req{color:#e53e3e;}
+  .f-field input, .f-field select, .f-field textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:6px;font-size:12.5px;}
+  .f-field textarea{min-height:90px;resize:vertical;}
+  .file-row{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted);margin-bottom:18px;}
+  .file-row .choose{border:1px solid #ddd;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:600;}
+
+  .info-card{background:var(--navy-dark);color:#fff;border-radius:14px;padding:26px;}
+  .info-card h4{color:var(--gold);font-size:11.5px;font-weight:800;letter-spacing:.05em;margin-bottom:18px;}
+  .info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+  .info-row .ic{width:38px;height:38px;border-radius:50%;background:rgba(240,168,36,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none;}
+  .info-row strong{display:block;font-size:13.5px;margin-bottom:3px;}
+  .info-row span{font-size:12.5px;color:#c9d1ea;}
+  hr.sep{border:none;border-top:1px solid rgba(255,255,255,.12);margin:6px 0 16px;}
+
+  /* Map presence section */
+  .presence-grid{display:grid;grid-template-columns:.9fr 1.3fr .8fr;gap:20px;align-items:center;}
+  .presence-grid h4{font-size:11.5px;color:var(--gold-dark);font-weight:800;letter-spacing:.05em;margin-bottom:8px;}
+  .presence-grid h2{font-size:20px;margin-bottom:12px;}
+  .presence-grid p{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+  .legend li{font-size:12.5px;font-weight:600;color:var(--navy-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .legend .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .map-box{background:var(--navy-dark);border-radius:14px;padding:30px;text-align:center;color:#fff;position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;}
+  .map-emoji{font-size:130px;filter:drop-shadow(0 0 20px rgba(240,168,36,.35));}
+  .branches-card{border:1px solid #eee;border-radius:14px;padding:20px;}
+  .branches-card h4{font-size:13px;color:var(--navy-dark);margin-bottom:4px;}
+  .branches-card p.sub{font-size:11.5px;color:var(--muted);margin-bottom:14px;}
+  .branch-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;font-size:12.5px;}
+  .branch-item .dot{width:9px;height:9px;border-radius:50%;margin-top:5px;flex:none;}
+  .branch-item strong{display:block;color:var(--navy-dark);font-size:12.5px;}
+  .branch-item span{color:var(--muted);font-size:11.5px;}
+
+  /* Why contact strip */
+  .why-strip{background:var(--navy-dark);color:#fff;text-align:center;}
+  .why-strip .eyebrow2{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.05em;margin-bottom:6px;}
+  .why-strip h2{color:#fff;font-size:21px;margin-bottom:22px;}
+  .why-icons{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+  .why-icons .ic{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:18px;}
+  .why-icons span{font-size:11.5px;font-weight:600;color:#e7ecf8;}
+
+  /* Visit office + FAQ */
+  .visit-faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .visit-faq-grid h4{font-size:11.5px;color:var(--gold-dark);font-weight:800;letter-spacing:.05em;margin-bottom:4px;}
+  .visit-faq-grid h3{font-size:18px;margin-bottom:8px;}
+  .visit-faq-grid p{font-size:12.5px;color:var(--muted);margin-bottom:14px;}
+  .map-embed{border-radius:10px;overflow:hidden;position:relative;border:1px solid #eee;}
+  .map-embed img{height:200px;object-fit:cover;}
+  .map-embed .pin{position:absolute;top:45%;left:35%;font-size:28px;color:#e53e3e;}
+  .map-embed .link{position:absolute;bottom:10px;left:14px;font-size:12px;color:#fff;background:rgba(0,0,0,.5);padding:4px 10px;border-radius:6px;}
+
+  .faq-item{border:1px solid #eee;border-radius:8px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--navy-dark);margin-bottom:10px;}
+  .faq-item .sign{color:var(--gold-dark);font-weight:800;}
+
+  /* Final CTA */
+  .final-cta{background:var(--navy-dark);color:#fff;}
+  .final-cta .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .final-cta .left{display:flex;gap:14px;align-items:center;}
+  .final-cta .ic-circle{width:54px;height:54px;border-radius:50%;background:rgba(240,168,36,.15);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;flex:none;}
+  .final-cta h2{color:var(--gold);font-size:16px;}
+  .final-cta p{color:#c9d1ea;font-size:12.5px;margin-top:4px;max-width:480px;}
+  .final-actions{display:flex;gap:10px;}
+
+  /* Footer */
+  footer{background:var(--navy-dark);color:#c9d1ea;padding-top:34px;}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:20px;padding-bottom:22px;}
+  .footer-grid h5{color:#fff;font-size:13px;margin-bottom:10px;}
+  .footer-grid li{margin-bottom:6px;font-size:12px;}
+  .footer-grid .logo{color:#fff;margin-bottom:8px;}
+  .socials{display:flex;gap:8px;margin-top:10px;}
+  .socials a{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .bottom-bar{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.1);padding:12px 0;font-size:11.5px;color:#9fabce;flex-wrap:wrap;gap:8px;}
+
+  @media(max-width:1000px){
+    .hero-grid,.form-grid,.presence-grid,.visit-faq-grid{grid-template-columns:1fr;}
+    .quick-grid{grid-template-columns:1fr 1fr;margin-top:20px;}
+    .why-icons{grid-template-columns:repeat(3,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    nav{display:none;}
+    .f-row{grid-template-columns:1fr;}
+  }
+  nav ul li a.active{color:var(--gold-dark);font-weight:800;border-bottom:2px solid var(--gold-dark);padding-bottom:4px;}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style id="unified-home-style">
+  /* ===== UNIFIED HEADER / FOOTER / FONT — matches Home Page ===== */
+  body{font-family:'Segoe UI', Arial, sans-serif !important;}
+  h1,h2,h3,h4,h5,h6,p,span,a,li,label,input,select,textarea,button{font-family:'Segoe UI', Arial, sans-serif !important;}
+
+  header{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:14px 24px !important;border-bottom:1px solid #eee !important;position:sticky !important;top:0 !important;background:#fff !important;z-index:50 !important;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--navy-dark);}
+  .logo-img{height:56px;width:auto;display:block;}
+  nav{margin-left:80px;}
+  nav ul{display:flex !important;gap:26px !important;align-items:center !important;font-size:14.5px !important;font-weight:600 !important;color:var(--navy-dark) !important;list-style:none;}
+  nav ul li a.active{color:var(--gold-dark) !important;font-weight:800 !important;border-bottom:2px solid var(--gold-dark) !important;padding-bottom:4px !important;}
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  header .btn-gold{padding:10px 20px;font-size:14px;}
+
+  .hamburger{display:none;background:none;border:none;font-size:26px;color:var(--navy-dark);cursor:pointer;padding:4px 6px;}
+  .nav-overlay{display:none;}
+  @media(max-width:900px){
+    nav{margin-left:0;position:fixed;top:0;right:-300px;width:280px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:90px 26px 26px;transition:right .3s ease;box-shadow:-6px 0 24px rgba(0,0,0,.15);z-index:200;}
+    nav.open{right:0;}
+    nav ul{flex-direction:column !important;gap:20px !important;width:100%;}
+    .hamburger{display:block;}
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(8,21,54,.45);z-index:150;}
+    .nav-overlay.open{display:block;}
+    .header-actions .btn-gold{display:none;}
+  }
+
+  footer{background:var(--navy-dark) !important;color:#c9d1ea !important;padding-top:50px !important;}
+  .footer-grid{display:grid !important;grid-template-columns:1.4fr 1fr 1fr 1.2fr !important;gap:30px !important;padding-bottom:36px !important;border-bottom:1px solid rgba(255,255,255,.1) !important;}
+  .footer-grid h5{color:#fff !important;font-size:15px !important;margin-bottom:14px !important;}
+  .footer-grid li{margin-bottom:9px !important;font-size:13.5px !important;list-style:none;}
+  .footer-grid ul{list-style:none;padding:0;margin:0;}
+  .footer-grid a{color:inherit;text-decoration:none;}
+  .footer-grid .logo{color:#fff !important;margin-bottom:12px !important;}
+  .footer-logo{height:60px;width:auto;margin-bottom:15px;filter:brightness(0) invert(1);}
+  .socials{display:flex !important;gap:10px !important;margin-top:16px !important;}
+  .socials a{width:34px !important;height:34px !important;border-radius:50% !important;border:1px solid rgba(255,255,255,.25) !important;display:flex !important;align-items:center !important;justify-content:center !important;font-size:13px !important;color:#fff;background:transparent;transition:.3s;}
+  .socials a:hover{background:var(--gold-dark) !important;border-color:var(--gold-dark) !important;}
+  .bottom-bar{display:flex !important;justify-content:space-between !important;padding:18px 0 !important;font-size:12.5px !important;flex-wrap:wrap;gap:10px;}
+  .bottom-bar a{color:inherit;text-decoration:underline;}
+
+  @media(max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr !important;}
+  }
+  @media(max-width:600px){
+    .footer-grid{grid-template-columns:1fr !important;}
+    nav{width:240px;}
+    .logo-img{height:44px;}
+  }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<style>
+  nav{margin-left:120px;}
+  .logo-img{height:56px;width:auto;display:block;}
+  .hamburger{display:none;background:none;border:none;font-size:26px;color:var(--navy-dark);cursor:pointer;padding:4px 6px;}
+  .nav-overlay{display:none;}
+  @media(max-width:900px){
+    nav{margin-left:0;position:fixed;top:0;right:-300px;width:280px;height:100vh;background:#fff;flex-direction:column;align-items:flex-start;padding:90px 26px 26px;transition:right .3s ease;box-shadow:-6px 0 24px rgba(0,0,0,.15);z-index:200;}
+    nav.open{right:0;}
+    nav ul{flex-direction:column;gap:20px;width:100%;}
+    .hamburger{display:block;}
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(8,21,54,.45);z-index:150;}
+    .nav-overlay.open{display:block;}
+    .header-actions .btn-gold{display:none;}
+  }
+</style>
+<header>
+  <div class="logo">
+    <div>
+      <a href="index.html">
+        <img src="logo.png" alt="HireArchy Solutions Logo" class="logo-img">
+      </a>
+    </div>
+  </div>
+
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="employers.html">Employers</a></li>
+      <li><a href="career-tools.html">Career Tools</a></li>
+      <li><a class="active" href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-actions">
+    <button class="btn btn-gold">Login</button>
+    <button class="hamburger" id="navToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">CONTACT US</div>
+      <h1>Let's Start<br>the Conversation</h1>
+      <div class="tagline">We're Here to Help You Hire, Grow, and Succeed</div>
+      <p>Whether you're looking to hire exceptional talent, explore career opportunities, or have questions about our recruitment services, our team is ready to assist you with professional guidance and prompt support.</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold">👤 Contact Our Team ↓</button>
+        <button class="btn btn-outline-white">💼 Find Jobs →</button>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/contact us imag.jpg" alt="HireArchy team">
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CONTACT CARDS -->
+<section style="padding-top:0;">
+  <div class="wrap quick-grid">
+    <div class="quick-card">
+      <div class="ic">📞</div>
+      <div>
+        <strong>General Enquiries</strong>
+        <span>Official Contact Number</span>
+        <span style="color:var(--navy-dark);font-weight:700;">+91 916597042</span>
+        <div class="link">Click to Call</div>
+      </div>
+    </div>
+    <div class="quick-card">
+      <div class="ic">✉️</div>
+      <div>
+        <strong>Official Email</strong>
+        <span>Write to us anytime</span>
+        <span style="color:var(--navy-dark);font-weight:700;">info@hirearchysolutions.in</span>
+        <div class="link">Click to Email</div>
+      </div>
+    </div>
+    <div class="quick-card">
+      <div class="ic">💼</div>
+      <div>
+        <strong>Employer Support</strong>
+        <span>Quick Hiring Assistance for Businesses &amp; Organizations</span>
+        <div class="link">We're here to help</div>
+      </div>
+    </div>
+    <div class="quick-card">
+      <div class="ic">👤</div>
+      <div>
+        <strong>Candidate Support</strong>
+        <span>Job Applications, Career Guidance &amp; Recruitment Assistance</span>
+        <div class="link">We're here to help</div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .quick-grid{
+    margin-top: 30px;
+}
+  </style>
+</section>
+
+<!-- FORM + BUSINESS INFO -->
+<section style="padding-top:10px;">
+  <div class="wrap form-grid">
+    <div class="form-card">
+      <h4>SEND US A MESSAGE</h4>
+      <h3>We'd Love to Hear From You</h3>
+      <p class="sub">Complete the form below and our team will get back to you as soon as possible.</p>
+      <div class="f-row">
+        <div class="f-field"><label>Full Name <span class="req">*</span></label><input placeholder="Enter your full name"></div>
+        <div class="f-field"><label>Company Name (Optional)</label><input placeholder="Enter company name"></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field"><label>Email Address <span class="req">*</span></label><input placeholder="Enter your email"></div>
+        <div class="f-field"><label>Mobile Number <span class="req">*</span></label><input placeholder="Enter your mobile number"></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field"><label>Subject <span class="req">*</span></label><input placeholder="Enter subject"></div>
+        <div class="f-field"><label>I am a: <span class="req">*</span></label><select><option>Select an option</option></select></div>
+      </div>
+      <div class="f-field" style="margin-bottom:12px;"><label>Message <span class="req">*</span></label><textarea placeholder="Type your message here..."></textarea></div>
+      <div class="file-row">
+        <span class="choose">Choose File</span> No file chosen
+        <span style="margin-left:auto;">Attach File (Optional) — PDF, DOC, DOCX (Max. 5MB)</span>
+      </div>
+      <button class="btn btn-gold">📤 Send Message</button>
+    </div>
+
+    <div class="info-card">
+      <h4>BUSINESS INFORMATION</h4>
+      <div class="info-row"><div class="ic">🌐</div><div><strong>Website</strong><span>www.hirearchysolutions.in</span></div></div>
+      <hr class="sep">
+      <div class="info-row"><div class="ic">📍</div><div><strong>Head Office</strong><span>Madhya Pradesh, India</span></div></div>
+      <hr class="sep">
+      <div class="info-row"><div class="ic">🕐</div><div><strong>Business Hours</strong><span>Monday – Saturday<br>09:30 AM – 06:30 PM<br>Sunday – Closed</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENCE ACROSS INDIA -->
+<section style="background:var(--cream);">
+  <div class="wrap presence-grid">
+    <div>
+      <h4>OUR PRESENCE ACROSS INDIA</h4>
+      <h2>Growing Our Recruitment Network Nationwide</h2>
+      <p>HireArchy Solutions Pvt. Ltd. is continuously expanding its recruitment network across India. Our interactive India Map showcases our Head Office and branch locations, making it easier for employers and job seekers to connect with us wherever they operate.</p>
+      <ul class="legend">
+        <li><span class="dot" style="background:var(--gold);"></span>Head Office</li>
+        <li><span class="dot" style="background:var(--blue);"></span>Active Branch Offices</li>
+        <li><span class="dot" style="background:var(--green);"></span>Upcoming Branches</li>
+        <li>🏢 Pan-India Recruitment Network</li>
+        <li>👥 Serving Employers &amp; Job Seekers Nationwide</li>
+      </ul>
+   </div>
+
+<div class="map-box">
+    <img src="img/logo.jpeg"
+         alt="Map"
+         class="map-image">
+</div>
+    <div class="branches-card">
+      <h4>OUR BRANCHES</h4>
+      <p class="sub">Click on any location to view details</p>
+      <div class="branch-item"><span class="dot" style="background:var(--gold);"></span><div><strong>Head Office</strong><span>Madhya Pradesh</span></div></div>
+      <div class="branch-item"><span class="dot" style="background:var(--blue);"></span><div><strong>Delhi Branch</strong><span>Delhi NCR</span></div></div>
+      <div class="branch-item"><span class="dot" style="background:var(--blue);"></span><div><strong>Mumbai Branch</strong><span>Maharashtra</span></div></div>
+      <div class="branch-item"><span class="dot" style="background:var(--blue);"></span><div><strong>Bangalore Branch</strong><span>Karnataka</span></div></div>
+      <div class="branch-item"><span class="dot" style="background:var(--blue);"></span><div><strong>Kolkata Branch</strong><span>West Bengal</span></div></div>
+      <div class="branch-item"><span class="dot" style="background:var(--green);"></span><div><strong>Hyderabad Branch</strong><span>Telangana</span></div></div>
+      <p style="font-size:11px;color:var(--muted);margin-top:6px;">More branches coming soon...</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CONTACT -->
+<section class="why-strip">
+  <div class="wrap">
+    <div class="eyebrow2">WHY CONTACT HIRE ARCHY?</div>
+    <h2>Professional Support You Can Trust</h2>
+
+    <div class="why-icons">
+
+      <div class="why-item" onclick="openPopup('Fast Response','Our recruitment team responds quickly to every employer and candidate enquiry.')">
+        <div class="ic"><i class="fa-solid fa-bolt"></i></div>
+        <span>Fast Response</span>
+      </div>
+
+      <div class="why-item" onclick="openPopup('Recruitment Specialists','Connect with experienced recruitment consultants across multiple industries.')">
+        <div class="ic"><i class="fa-solid fa-users"></i></div>
+        <span>Dedicated Recruitment Specialists</span>
+      </div>
+
+      <div class="why-item" onclick="openPopup('Personalized Assistance','Receive one-on-one guidance tailored to your hiring or career goals.')">
+        <div class="ic"><i class="fa-solid fa-user-tie"></i></div>
+        <span>Personalized Assistance</span>
+      </div>
+
+      <div class="why-item" onclick="openPopup('Employer & Candidate Support','Complete recruitment and career support under one platform.')">
+        <div class="ic"><i class="fa-solid fa-briefcase"></i></div>
+        <span>Employer & Candidate Support</span>
+      </div>
+
+      <div class="why-item" onclick="openPopup('Transparent Communication','Stay informed at every stage with clear and honest communication.')">
+        <div class="ic"><i class="fa-solid fa-comments"></i></div>
+        <span>Transparent Communication</span>
+      </div>
+
+      <div class="why-item" onclick="openPopup('Pan India Recruitment','Hiring and placement support available across India.')">
+        <div class="ic"><i class="fa-solid fa-building"></i></div>
+        <span>Pan-India Recruitment Support</span>
+      </div>
+
+    </div>
+  </div>
+<style>
+  .why-icons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+    margin-top:35px;
+}
+
+.why-item{
+    text-align:center;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.why-item:hover{
+    transform:translateY(-8px);
+}
+
+.ic{
+    width:75px;
+    height:75px;
+    margin:auto;
+    border-radius:50%;
+    background:#fff;
+    color:#f0a500;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.35s;
+}
+
+.why-item:hover .ic{
+    background:#f0a500;
+    color:#fff;
+    transform:scale(1.08);
+}
+
+.why-item span{
+    display:block;
+    margin-top:15px;
+    font-weight:600;
+}
+
+/* Popup */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-box{
+    width:420px;
+    max-width:90%;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    position:relative;
+    animation:popup .35s ease;
+}
+
+.popup-box h3{
+    color:#0b1b4d;
+    margin-bottom:15px;
+}
+
+.popup-box p{
+    color:#666;
+    line-height:1.7;
+}
+
+.close-btn{
+    position:absolute;
+    right:18px;
+    top:12px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+</style>
+
+</section>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h3 id="popupTitle"></h3>
+      <p id="popupText"></p>
+  </div>
+</div>
+
+<!-- VISIT OFFICE + FAQ -->
+<section>
+  <div class="wrap visit-faq-grid">
+    <div>
+      <h4>FIND US</h4>
+      <h3>Visit Our Office</h3>
+      <p>Use the interactive Google Map below for turn-by-turn navigation to our Head Office.</p>
+
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.0809084554007!2d75.1779214728729!3d23.89669133580562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39643b577e02fb93%3A0xee0687decfb8968e!2sHire-Archy%20Solutions%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1785693354105!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+
+      <p style="margin-top:8px;font-weight:600;color:var(--navy-dark);font-size:12.5px;">
+        HireArchy Solutions Pvt. Ltd. — Madhya Pradesh, India
+      </p>
+    </div>
+
+    <div>
+      <h3>FREQUENTLY ASKED QUESTIONS</h3>
+
+      <div class="faq-item">
+        What are your business hours?
+        <span class="sign">⌄</span>
+      </div>
+
+      <div class="faq-item">
+        How quickly will I receive a response?
+        <span class="sign">⌄</span>
+      </div>
+
+      <div class="faq-item">
+        Can employers discuss hiring requirements?
+        <span class="sign">⌄</span>
+      </div>
+
+      <div class="faq-item">
+        Can job seekers contact you directly?
+        <span class="sign">⌄</span>
+      </div>
+
+      <div class="faq-item">
+        Can I visit your office?
+        <span class="sign">⌄</span>
+      </div>
+    </div>
+  </div>
+</section>
+     
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="left">
+      <div class="ic-circle">🤝</div>
+      <div>
+        <h2>LET'S BUILD SUCCESS TOGETHER</h2>
+        <p>Whether you're hiring exceptional talent or searching for your next career opportunity, HireArchy Solutions Pvt. Ltd. is committed to delivering trusted recruitment support every step of the way.</p>
+      </div>
+    </div>
+    <div class="final-actions">
+      <button class="btn btn-gold">Get in Touch ↓</button>
+      <button class="btn btn-outline-white">Explore Jobs →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo">
+     <img src="logo.png" alt="HireArchy Solutions Logo" class="footer-logo">
+      </div>
+
+      <p style="font-size:13px;color:#f7f8fc;">
+        Connecting talent with opportunities and empowering businesses with smart HR, recruitment, staffing, payroll, and workforce solutions.
+      </p>
+
+      <div class="socials">
+        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/919165972042" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="employers.html">Employers</a></li>
+        <li><a href="career-tools.html">Career Tools</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Our Solutions</h5>
+      <ul>
+        <li>HR</li>
+        <li>Recruitment</li>
+        <li>Staffing</li>
+        <li>Payroll</li>
+        <li>Workforce Solutions</li>
+      </ul>
+    </div>
+
+    <div>
+      <h5>Contact Us</h5>
+      <ul>
+        <li>📍 Mandsaur, Madhya Pradesh, India</li>
+        <li>📞 +91 91659 72042</li>
+        <li>✉️ info@hirearchysolutions.in</li>
+        <li>🌐 www.hirearchysolutions.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap bottom-bar">
+    <span>© Copyright 2026 HireArchy Solutions Pvt. Ltd. All Rights Reserved.</span>
+    <span><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms &amp; Conditions</a></span>
+  </div>
+  <style>
+    .footer-logo{height: 60px;width: auto;margin-bottom: 15px;filter: none !important;}
+    .socials{display:flex;gap:12px;margin-top:18px;}
+    .socials a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ffffff15;color:#fff;text-decoration:none;font-size:18px;transition:.3s;}
+    .socials a:hover{background:#caa052;color:#fff;}
+  </style>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    var overlay = document.getElementById('navOverlay');
+    if(toggle && nav && overlay){
+      toggle.addEventListener('click', function(){
+        nav.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+      overlay.addEventListener('click', function(){
+        nav.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('open');
+          overlay.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
